@@ -1,0 +1,76 @@
+manush-patel@ManushSir:~$ ssh debian@192.168.7.2
+The authenticity of host '192.168.7.2 (192.168.7.2)' can't be established.
+ED25519 key fingerprint is: SHA256:QN5NqKMU6CYe0eavx+b4ZjBMhnnYmly4Pv7C0ZaQXTM
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.7.2' (ED25519) to the list of known hosts.
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+debian@192.168.7.2's password: **temppwd**
+Linux beaglebone 4.4.91-ti-r133 #1 SMP Tue Oct 10 05:18:08 UTC 2017 armv7l
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue Oct 10 12:35:55 2017 from 192.168.7.1
+debian@beaglebone:~$ mkdir C_Projects
+debian@beaglebone:~$ cd C_Projects
+debian@beaglebone:~/C_Projects$ nano hellobone.c
+debian@beaglebone:~/C_Projects$ gcc hellobone.c -o hellobone.exe
+debian@beaglebone:~/C_Projects$ gcc hellobone.exe
+debian@beaglebone:~/C_Projects$ ./hellobone.exe
+
+Hello World
+
+I am Boner!
+debian@beaglebone:/$ exit
+logout
+Connection to 192.168.7.2 closed.
+debian@beaglebone:~$ ls
+bin       C_Projects  example.c    github.com    pthread_1  while    while.cpp
+cpp_prgm  example     example.cpp  meet_ADXL345  trst       while.c
+debian@beaglebone:~$ cd sys
+-bash: cd: sys: No such file or directory
+debian@beaglebone:~$ cd /sys
+debian@beaglebone:/sys$ cd class
+debian@beaglebone:/sys/class$  ls
+ata_device  bsg          extcon    i2c-adapter  mdio_bus  pci_bus       rc           sound       ubi          watchdog
+ata_link    devcoredump  firmware  i2c-dev      mem       phy           regulator    spidev      udc
+ata_port    devfreq      gpio      input        misc      power_supply  rtc          spi_master  uio
+backlight   dma          graphics  iommu        mmc_host  pps           scsi_device  thermal     vc
+bdi         drm          hidraw    leds         mtd       ptp           scsi_disk    tpm         video4linux
+block       dvb          hwmon     mbox         net       pwm           scsi_host    tty         vtconsole
+debian@beaglebone:/sys/class$ cd leds
+debian@beaglebone:/sys/class/leds$ ls
+beaglebone:green:usr0  beaglebone:green:usr1  beaglebone:green:usr2  beaglebone:green:usr3
+debian@beaglebone:/sys/class/leds$ cd beaglebone
+-bash: cd: beaglebone: No such file or directory
+debian@beaglebone:/sys/class/leds$ cd beaglebone:green
+-bash: cd: beaglebone:green: No such file or directory
+debian@beaglebone:/sys/class/leds$ cd beaglebone:green:usr2
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ echo >1 brightness
+-bash: 1: Permission denied
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ ls
+brightness  device  max_brightness  power  subsystem  trigger  uevent
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ sudo echo > 1 brightness
+-bash: 1: Permission denied
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ ls -al
+total 0
+drwxrwxr-x 3 root gpio    0 Oct 10 12:07 .
+drwxrwxr-x 6 root gpio    0 Oct 10 12:07 ..
+-rw-rw-r-- 1 root gpio 4096 Oct 10 12:07 brightness
+lrwxrwxrwx 1 root gpio    0 Oct 10 12:07 device -> ../../../leds
+-rw-rw-r-- 1 root gpio 4096 Oct 10 12:07 max_brightness
+drwxrwxr-x 2 root gpio    0 Oct 10 12:07 power
+lrwxrwxrwx 1 root gpio    0 Oct 10 12:07 subsystem -> ../../../../../class/leds
+-rw-rw-r-- 1 root gpio 4096 Oct 10 12:07 trigger
+-rw-rw-r-- 1 root gpio 4096 Oct 10 12:07 uevent
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ sudo sh -c "echo 1> brightness"
+[sudo] password for debian: 
+sh: echo: I/O error
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ sudo sh -c "echo 1 > brightness"
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ sudo sh -c "echo 0 > brightness"
+debian@beaglebone:/sys/class/leds/beaglebone:green:usr2$ 
+
