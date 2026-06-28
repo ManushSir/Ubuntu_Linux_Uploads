@@ -1,0 +1,32 @@
+pwd - show current directory
+cd - change current directory
+ls - list directory contents
+chmod - change file permissions
+chown - change file ownership
+cp - copy files
+mv - move files
+rm - remove files
+mkdir - make directory
+rmdir - remove directory
+cat - dump file contents
+less - progressively dump file
+vi - edit file (complex)
+nano - edit file (simple)
+head - trim dump to top
+tail - trim dump to bottom
+echo - print/dump value
+env - dump environment variables
+export - set environment variable
+history - dump command history
+grep - search dump for strings
+man - get help on command
+apropos - show list of man pages
+find - search for files
+tar - create/extract file archives
+gzip - compress a file
+gunzip - decompress a file
+du - show disk usage
+df - show disk free space
+mount - mount disks
+tee - write dump to file in parallel
+hexdump - readable binary dumps
